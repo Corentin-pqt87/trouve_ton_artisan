@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+// assets
 import './App.css';
+import logo from './asset/img/Logo.png'
+
+// addon
+//import { Routes, Route, Link } from 'react-router-dom';
+
+// pages jsx
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <img 
+            src={logo}
+            alt='Trouve Ton Artisan'
+            class='img_logo'
+          />
+        </div>        
       </header>
+
+      <body>
+
+      </body>
+
+      <footer>
+
+      </footer>
     </div>
   );
 }

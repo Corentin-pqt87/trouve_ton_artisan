@@ -16,11 +16,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          <img 
-            src={logo}
-            alt='Trouve Ton Artisan'
-            class='img_logo'
-          />
+          <nav class="avbar navbar-expand-lg bg-body-tertiary">
+            <img 
+              src={logo}
+              alt='Trouve Ton Artisan'
+              class='img_logo'
+            />
+
+          </nav>
         </div>        
       </header>
 

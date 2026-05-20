@@ -1,6 +1,10 @@
 // assets
-import './App.css';
 import logo from './asset/img/Logo.png'
+
+// css
+
+//import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // addon
 //import { Routes, Route, Link } from 'react-router-dom';

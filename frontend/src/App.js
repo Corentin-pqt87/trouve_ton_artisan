@@ -15,6 +15,7 @@ import Services from './pages/services';
 import Fabrication from './pages/fabrication';
 import Alimentation from './pages/alimentation';
 import Accueil from './pages/accueil';
+import Test from './pages/Test';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/fabrication" element={<Fabrication />} />
           <Route path="/alimentation" element={<Alimentation />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </main>
 

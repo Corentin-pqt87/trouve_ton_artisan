@@ -85,4 +85,8 @@ Le footer ne sert qu'a afficher les mensions légals et a changer les options de
 *(toutes ces informations sont fictive)*
 
 ## En cas d'échec
-Une pages `404` avec 
+Une pages `404` avec cette image en fond :
+![404 bg](./frontend/src/asset/img/404.webp)
+
+Avec le texte :
+> "Page non trouvé"

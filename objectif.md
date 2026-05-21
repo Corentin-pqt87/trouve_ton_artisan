@@ -26,16 +26,16 @@ Les résultats de recherche sont dans la base de donnée sur la table `artisan`.
     <span class="badge text-bg-success">{artisan.note}/5</span>
     <div>
       <span class="badge rounded-pill text-bg-primary">
-        {artisan.id_specialite.nom}
+        {artisan.Specialite.specialite_name}
       </span>
       <span class="badge rounded-pill text-bg-secondary">
-        {artisan.id_caregorie.nom}
+        {artisan.Categorie.categorie_name}
       </span>
     </div>
     <p class="card-text">{artisan.a_propos}</p>
     <a href="#" class="card-link">{artisan.email}</a>
     <a href="#" class="card-link">{artisan.site_web}</a>
-    <p>{artisan.id_ville.nom}</p>
+    <p>{artisan.Ville.ville_name}</p>
   </div>
 </div>
 ```

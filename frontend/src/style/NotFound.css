@@ -1,0 +1,5 @@
+.NotFound {
+    background-image : url("../asset/img/404.webp");
+    background-size: cover;
+    background-position: center
+}

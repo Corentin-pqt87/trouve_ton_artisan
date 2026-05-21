@@ -16,6 +16,7 @@ import Fabrication from './pages/fabrication';
 import Alimentation from './pages/alimentation';
 import Accueil from './pages/accueil';
 import Test from './pages/Test';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
           <Route path="/fabrication" element={<Fabrication />} />
           <Route path="/alimentation" element={<Alimentation />} />
           <Route path="/test" element={<Test />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 

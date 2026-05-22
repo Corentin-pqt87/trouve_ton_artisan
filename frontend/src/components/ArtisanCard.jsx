@@ -1,17 +1,19 @@
 import React from "react";
 
 function ArtisanCard({ artisan }) {
-  // 1. Logique métier pour la couleur du badge de la note (selon vos objectifs)
+  // note <= 3.5 : rouge
+  // 3.5 < note <= 4.5 : jaune
+  // 3.5 < note : vert
   let noteBadgeClass = "text-bg-danger"; // Par défaut <= 3.5
   
   if (artisan.note >= 4.5) {
-    noteBadgeClass = "text-bg-success"; //
+    noteBadgeClass = "text-bg-success";
   } else if (artisan.note > 3.5 && artisan.note < 4.5) {
-    noteBadgeClass = "text-bg-warning"; //
+    noteBadgeClass = "text-bg-warning";
   }
 
   return (
-    <div class="card" style="width: 18rem;">
+    <div class="card" style={{ width: "18rem" }}>
         <div class="card-body">
             <h5 class="card-title">{artisan.nom}</h5>
             <span class="badge text-bg-success">{artisan.note}/5</span>

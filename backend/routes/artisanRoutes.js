@@ -1,13 +1,37 @@
 const express = require('express');
 const router = express.Router();
-// On importe nos modèles interconnectés
+
 const { Artisan, Ville, Categorie, Specialite } = require('../models');
+const { Op } = require('sequelize');
 
 // Route pour récupérer tous les artisans avec leurs détails
 router.get('/api/artisans', async (req, res) => {
   try {
+    // parametre de recherche
+    const { id_categorie, nom, villes } = req.query;
+    
+    let conditions = {};
+
+    if (id_categorie) {
+      conditions.id_categorie = id_categorie;
+    }
+
+    // recherche du motife de la bar de recherche
+    if (nom) {
+      conditions.nom = {
+        [Op.like]: `%${nom}%` 
+      };
+    }
+
+    // filtre par villes si des cases sont cochees
+    if (villes) {
+      const listeIdsVilles = villes.split(','); 
+      conditions.id_ville = {
+        [Op.in]: listeIdsVilles // Filtre SQL 
+      };
+    }
     const artisans = await Artisan.findAll({
-      // L'option include permet de joindre les tables interconnectées
+      where: conditions,
       include: [
         { model: Ville, attributes: ['ville_name'] },
         { model: Categorie, attributes: ['categorie_name'] },
@@ -21,11 +45,22 @@ router.get('/api/artisans', async (req, res) => {
   }
 });
 
+router.get('/api/villes', async (req, res) => {
+  try {
+    const toutesLesVilles = await Ville.findAll({
+      order: [['ville_name', 'ASC']] // Tri alphabétique automatique bien plus propre pour l'affichage
+    });
+    res.json(toutesLesVilles);
+  } catch (error) {
+    res.status(500).json({ error: "Erreur lors du chargement des villes", details: error.message });
+  }
+});
+
 // Route pour récupérer un artisan précis par son ID
 router.get('/api/artisans/:id', async (req, res) => {
   try {
     const artisan = await Artisan.findByPk(req.params.id, {
-      include: [Ville, Categorie, Specialite] // Inclus toutes les infos par défaut
+      include: [Ville, Categorie, Specialite]
     });
 
     if (!artisan) {

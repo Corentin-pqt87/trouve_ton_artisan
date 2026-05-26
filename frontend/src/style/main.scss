@@ -10,6 +10,7 @@ $green : #82b864;
 //Bootstrao
 $success-color: $green;
 $primary-color: $grey;
+$text-primary: $grey;
 
 // Elements
 $header: $light;
@@ -26,6 +27,14 @@ $footer:$dark;
 
 body, .App{
     background-color: $body;
+}
+
+.grey, p, h1, h2, h3, h4, h5{
+    color: $grey;
+}
+
+.card{
+    width: 18rem;
 }
 
 .App-header{
@@ -81,9 +90,15 @@ body, .App{
                 color: $grey;
                 font-weight: 500;
                 &:hover{
-                    color: $dark;
+                    color: $medium;
+                    width: 100%;
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                    -webkit-transition: 0.3s ease-in-out;
+                    transition: 0.3s ease-in-out;
                 }
             }
         }
+
     }
 }

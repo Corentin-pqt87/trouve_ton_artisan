@@ -3,6 +3,7 @@ import logo from './asset/img/Logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import './style/main.css'
 
 import Accueil from './pages/accueil';
 import Recherche from "./pages/recherche";
@@ -31,22 +32,39 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-              {/* logo = nouvelle recherche */}
+      {/* HEADER ----------------------------------------------------------------------------------------------------- */}
+      <header className="App-header border-bottom py-2">
+        <div className="container-fluid">
+          <div className="row align-items-center">
+            
+            {/* GAUCHE : LOGO */}
+            <div className="col-12 col-md-4 logo-container">
+              {/* Le clic sur le logo réinitialise la recherche */}
               <Link className="navbar-brand" to="/recherche" onClick={() => setTexteSaisi('')}>
-                <img src={logo} alt="Logo" width="30" height="24"/>
+                <img src={logo} alt="Logo" className='logo' />
               </Link>
+            </div>
+
+            {/* DROITE : RECHERCHE */}
+            <div className="col-12 col-md-8 search-nav-container">
               
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  {/* recherche avec des categories predefinie */}
+              {/* BAR DE RECHERCHE */}
+              <div className="search-top">
+                <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
+                  <input 
+                    className="form-control me-2" 
+                    type="search" 
+                    placeholder="Rechercher un artisan..." 
+                    aria-label="Search"
+                    value={texteSaisi}
+                    onChange={handleInputChange}
+                  />
+                </form>
+              </div>
+
+              {/* BOUTTON */}
+              <div className="nav-bottom">
+                <ul className="nav me-2">
                   <li className="nav-item">
                     <Link className="nav-link" to="/recherche?categorie=2" onClick={() => setTexteSaisi('')}>Bâtiment</Link>
                   </li>
@@ -60,25 +78,15 @@ function App() {
                     <Link className="nav-link" to="/recherche?categorie=1" onClick={() => setTexteSaisi('')}>Alimentation</Link>
                   </li>
                 </ul>
-                
-                {/* bare de recherche */}
-                <form className="d-flex w-50" role="search" onSubmit={handleSearchSubmit}>
-                  <input 
-                    className="form-control me-5" 
-                    type="search" 
-                    placeholder="Rechercher un artisan..." 
-                    aria-label="Search"
-                    value={texteSaisi}
-                    onChange={handleInputChange} // Déclenche le filtrage au fil de la saisie
-                  />
-                </form>
               </div>
+
             </div>
-          </nav>
+
+          </div>
         </div>        
       </header>
 
-      <main>
+      <main className='App-doby'>
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/recherche" element={<Recherche />} />

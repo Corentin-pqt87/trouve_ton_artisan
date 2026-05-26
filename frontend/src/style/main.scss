@@ -1,0 +1,89 @@
+
+$light: #f1f8fc;
+$medium: #0074c7;
+$dark: #00497c;
+
+$grey: #384050;
+$red: #cd2c2e;
+$green : #82b864;
+
+//Bootstrao
+$success-color: $green;
+$primary-color: $grey;
+
+// Elements
+$header: $light;
+$body: $medium;
+$footer:$dark;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    //background-color: $medium;
+    box-sizing: border-box;
+}
+
+body, .App{
+    background-color: $body;
+}
+
+.App-header{
+    background-color: $header;
+    //border-bottom: 1px;
+    padding: 0.5rem 0;
+
+    // DIV gauche : logo
+    .logo-container{
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    }
+
+    // DIV droite : recherche/menu
+    .search-nav-container{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        // bar de recherche
+        .search-top{
+            display: flex;
+            justify-content: flex-end;
+
+            form{
+                width: 100%;
+                //max-width: 500px;
+            }
+        }
+
+        // boutton de recherche
+        .nav-bottom{
+            display: flex;
+            justify-content: flex-end;
+
+            .nav-link{
+                color: $grey;
+                font-weight: 500;
+                &:hover{
+                    color: $dark;
+                }
+            }
+        }
+    }
+}

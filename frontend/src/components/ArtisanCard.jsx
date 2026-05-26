@@ -13,9 +13,9 @@ function ArtisanCard({ artisan }) {
   }
 
   return (
-    <div class="card" style={{ width: "18rem" }}>
+    <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{artisan.nom}</h5>
+            <h5 class="card-title grey">{artisan.nom}</h5>
             <span class="badge text-bg-success">{artisan.note}/5</span>
             <div>
                 <span class="badge rounded-pill text-bg-primary">
@@ -26,8 +26,8 @@ function ArtisanCard({ artisan }) {
                 </span>
             </div>
             <p class="card-text">{artisan.a_propos}</p>
-            <a href="#" class="card-link">{artisan.email}</a>
-            <a href="#" class="card-link">{artisan.site_web}</a>
+            <a href={artisan.email} class="card-link">{artisan.email}</a>
+            <a href={artisan.site_web} class="card-link">{artisan.site_web}</a>
             <p>{artisan.Ville.ville_name}</p>
         </div>
     </div>

@@ -64,19 +64,19 @@ function Recherche() {
         
         {/* PARTIE GAUCHE : zone de recherche (1/4) */}
         <div className="col-md-3 recherche border-end border-light-subtle pe-3">
-          <h4 className="mb-3 text-secondary">Filtres de recherche</h4>
+          <h4 className="mb-3 grey">Filtres de recherche</h4>
           
           
 
           {/* Recherche par Villes : case a cocher pour les villes */}
           <div className="mb-4">
-            <label className="form-label fw-bold">Filtrer par Ville</label>
-            <div style={{ maxHeight: "300px", overflowY: "auto" }}> {/* Ajout d'un scrollbar si la BDD contient énormément de villes */}
+            <label className="form-label fw-bold grey">Filtrer par Ville</label>
+            <div style={{ maxHeight: "300px", overflowY: "auto" }}> {/* Ajout d'un scrollbar*/}
               {villes.length === 0 ? (
-                <p className="text-muted small">Chargement des villes disponibles...</p>
+                <p className="text-muted small grey">Chargement des villes disponibles...</p>
               ) : (
                 villes.map(ville => (
-                  <div className="form-check mb-2" key={ville.id_ville}> {/* Utilisation de la clé primaire de votre table SQL */}
+                  <div className="form-check mb-2 grey" key={ville.id_ville}> {/* Utilisation de la clé primaire de votre table SQL */}
                     <input 
                       className="form-check-input" 
                       type="checkbox" 
@@ -96,7 +96,7 @@ function Recherche() {
 
         {/* PARTIE DROITE : resultat de la recherche (3/4) */}
         <div className="col-md-9 resultat ps-4">
-          <h3 className="mb-4 text-primary">
+          <h3 className="mb-4 grey">
             {artisans.length} Artisan(s) correspondant(s)
           </h3>
           

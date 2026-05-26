@@ -52,7 +52,7 @@ function App() {
               <div className="search-top">
                 <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
                   <input 
-                    className="form-control me-2" 
+                    className="form-control me-2 rounded-pill" 
                     type="search" 
                     placeholder="Rechercher un artisan..." 
                     aria-label="Search"

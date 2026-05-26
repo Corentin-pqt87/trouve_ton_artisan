@@ -38,9 +38,6 @@ body, .App {
   object-fit: contain;
   display: block;
 }
-.App-header .logo-container img:hover {
-  zoom: 1.5;
-}
 .App-header .search-nav-container {
   display: flex;
   flex-direction: column;
@@ -52,6 +49,13 @@ body, .App {
 }
 .App-header .search-nav-container .search-top form {
   width: 100%;
+}
+.App-header .search-nav-container input.form-control {
+  background-color: #0074c7;
+  color: #f1f8fc;
+}
+.App-header .search-nav-container input.form-control::placeholder {
+  color: #f1f8fc;
 }
 .App-header .search-nav-container .nav-bottom {
   display: flex;

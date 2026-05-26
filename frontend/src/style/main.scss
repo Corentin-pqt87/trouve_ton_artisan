@@ -81,6 +81,18 @@ body, .App{
             }
         }
 
+        // bar de recherche
+        input.form-control{
+            background-color: $medium;
+            color: $light;
+
+            //texte de base
+            &::placeholder{
+                color: $light;
+            }
+
+        }
+
         // boutton de recherche
         .nav-bottom{
             display: flex;

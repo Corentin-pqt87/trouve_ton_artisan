@@ -16,62 +16,79 @@ body, .App {
   width: 18rem;
 }
 
-.App-header {
+.App .App-header {
   background-color: #f1f8fc;
   padding: 0.5rem 0;
 }
-.App-header .logo-container {
+.App .App-header .logo-container {
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 80px;
 }
-.App-header .logo-container a {
+.App .App-header .logo-container a {
   display: block;
   width: 100%;
   height: 100%;
 }
-.App-header .logo-container img {
+.App .App-header .logo-container img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
-.App-header .search-nav-container {
+.App .App-header .search-nav-container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.App-header .search-nav-container .search-top {
+.App .App-header .search-nav-container .search-top {
   display: flex;
   justify-content: flex-end;
 }
-.App-header .search-nav-container .search-top form {
+.App .App-header .search-nav-container .search-top form {
   width: 100%;
 }
-.App-header .search-nav-container input.form-control {
+.App .App-header .search-nav-container input.form-control {
   background-color: #0074c7;
   color: #f1f8fc;
 }
-.App-header .search-nav-container input.form-control::placeholder {
+.App .App-header .search-nav-container input.form-control::placeholder {
   color: #f1f8fc;
 }
-.App-header .search-nav-container .nav-bottom {
+.App .App-header .search-nav-container .nav-bottom {
   display: flex;
   justify-content: flex-end;
 }
-.App-header .search-nav-container .nav-bottom .nav-link {
+.App .App-header .search-nav-container .nav-bottom .nav-link {
   color: #384050;
   font-weight: 500;
 }
-.App-header .search-nav-container .nav-bottom .nav-link:hover {
+.App .App-header .search-nav-container .nav-bottom .nav-link:hover {
   color: #0074c7;
   width: 100%;
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+}
+.App .App-footer {
+  background-color: #00497c;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.App .App-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.App .App-footer a {
+  text-decoration: none;
+  color: #f1f8fc;
+}
+.App .App-footer li {
+  color: #f1f8fc;
 }
 
 /*# sourceMappingURL=main.css.map */

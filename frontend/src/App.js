@@ -5,10 +5,16 @@ import React, { useState } from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './style/main.css'
 
+//page
 import Accueil from './pages/accueil';
 import Recherche from "./pages/recherche";
 import Test from './pages/Test';
 import NotFound from './pages/NotFound';
+//page legal pour footer
+import Accessibilite from './pages/LEGAL/accessibilite'
+import Cookies from './pages/LEGAL/cookies'
+import Donne from './pages/LEGAL/donnees_personnelles'
+import Mentions_legals from './pages/LEGAL/mentions_legals'
 
 function App() {
   const [texteSaisi, setTexteSaisi] = useState('');
@@ -95,8 +101,28 @@ function App() {
         </Routes>
       </main>
 
-      <footer>
-
+      <footer className="App-footer">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <ul className="list-unstyled">
+                <li><Link to="/accessibilite">Accessibilité</Link></li>
+                <li><Link to="/cookies">Cookies</Link></li>
+                <li><Link to="/donnees_personnelles">Données Personnelles</Link></li>
+                <li><Link to="/mentions_legals">Mentions Légales</Link></li>
+              </ul>
+            </div>
+            <div className="col-12 col-md-6 text-md-end">
+              <ul>
+                <li>101 cours Charlemagne</li>
+                <li>CS 20033</li>
+                <li>69269 LYON CEDEX 02</li>
+                <li>France</li>
+                <li>+33 (0)4 26 73 40 00</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );

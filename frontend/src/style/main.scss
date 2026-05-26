@@ -37,80 +37,100 @@ body, .App{
     width: 18rem;
 }
 
-.App-header{
-    background-color: $header;
-    //border-bottom: 1px;
-    padding: 0.5rem 0;
+.App{
+    .App-header{
+        background-color: $header;
+        //border-bottom: 1px;
+        padding: 0.5rem 0;
 
-    // DIV gauche : logo
-    .logo-container{
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80px;
+        // DIV gauche : logo
+        .logo-container{
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
 
-        a{
-            display: block;
-            width: 100%;
-            height: 100%;
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
         }
 
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+        // DIV droite : recherche/menu
+        .search-nav-container{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            // bar de recherche
+            .search-top{
+                display: flex;
+                justify-content: flex-end;
+
+                form{
+                    width: 100%;
+                    //max-width: 500px;
+                }
+            }
+
+            // bar de recherche
+            input.form-control{
+                background-color: $medium;
+                color: $light;
+
+                //texte de base
+                &::placeholder{
+                    color: $light;
+                }
+
+            }
+
+            // boutton de recherche
+            .nav-bottom{
+                display: flex;
+                justify-content: flex-end;
+
+                .nav-link{
+                    color: $grey;
+                    font-weight: 500;
+                    &:hover{
+                        color: $medium;
+                        width: 100%;
+                        -webkit-transform: scale(1.5);
+                        transform: scale(1.5);
+                        -webkit-transition: 0.3s ease-in-out;
+                        transition: 0.3s ease-in-out;
+                    }
+                }
+            }
+
         }
     }
 
-    // DIV droite : recherche/menu
-    .search-nav-container{
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        // bar de recherche
-        .search-top{
-            display: flex;
-            justify-content: flex-end;
-
-            form{
-                width: 100%;
-                //max-width: 500px;
-            }
+    .App-footer{
+        background-color: $footer;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-
-        // bar de recherche
-        input.form-control{
-            background-color: $medium;
+        a{
+            text-decoration: none;
             color: $light;
-
-            //texte de base
-            &::placeholder{
-                color: $light;
-            }
-
         }
-
-        // boutton de recherche
-        .nav-bottom{
-            display: flex;
-            justify-content: flex-end;
-
-            .nav-link{
-                color: $grey;
-                font-weight: 500;
-                &:hover{
-                    color: $medium;
-                    width: 100%;
-                    -webkit-transform: scale(1.5);
-                    transform: scale(1.5);
-                    -webkit-transition: 0.3s ease-in-out;
-                    transition: 0.3s ease-in-out;
-                }
-            }
+        li{
+            color: $light;
         }
-
     }
 }

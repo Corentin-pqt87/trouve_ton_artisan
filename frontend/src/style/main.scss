@@ -47,10 +47,24 @@ body, .App{
     }
 }
 
+.recherche{
+    color: $light;
+    .ville{
+        label{
+            color: $light;
+        }
+    }
+}
+
 .App{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    h3, h4{
+        color: $light;
+    }
+
     .App-dody{
         flex: 1;
     }

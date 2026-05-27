@@ -69,7 +69,7 @@ function Recherche() {
           
 
           {/* Recherche par Villes : case a cocher pour les villes */}
-          <div className="mb-4">
+          <div className="mb-4 ville">
             <label className="form-label fw-bold grey">Filtrer par Ville</label>
             <div style={{ maxHeight: "300px", overflowY: "auto" }}> {/* Ajout d'un scrollbar*/}
               {villes.length === 0 ? (

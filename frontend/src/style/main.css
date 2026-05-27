@@ -50,8 +50,20 @@ body, .App {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.2;
+  opacity: 0.3;
   z-index: -1;
+}
+.App.bg-cat-1::before {
+  background-image: url(../asset/img/alimentation.webp);
+}
+.App.bg-cat-2::before {
+  background-image: url(../asset/img/batiment.jpg);
+}
+.App.bg-cat-3::before {
+  background-image: url(../asset/img/fabrication.jpg);
+}
+.App.bg-cat-4::before {
+  background-image: url(../asset/img/services.jpg);
 }
 .App h1, .App h2, .App h3, .App h4 {
   color: #f1f8fc;

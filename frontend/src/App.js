@@ -2,7 +2,7 @@
 import logo from './asset/img/Logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import './style/main.css'
 
 //page
@@ -20,6 +20,11 @@ function App() {
   const [texteSaisi, setTexteSaisi] = useState('');
   // changer URL
   const navigate = useNavigate(); 
+  const location = useLocation();
+
+  // numéro de catégorie depuis l'URL 
+  const queryParams = new URLSearchParams(location.search);
+  const categorieActive = queryParams.get('categorie');
 
   // envois du form a l'api
   const handleSearchSubmit = (e) => {
@@ -37,7 +42,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${categorieActive ? `bg-cat-${categorieActive}` : ''}`}>
       {/* HEADER ----------------------------------------------------------------------------------------------------- */}
       <header className="App-header border-bottom py-2">
         <div className="container-fluid">

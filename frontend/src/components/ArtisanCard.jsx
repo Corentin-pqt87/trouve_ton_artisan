@@ -13,7 +13,7 @@ function ArtisanCard({ artisan }) {
   }
 
   return (
-    <div class="card">
+    <div class="card artisan-fiche">
         <div class="card-body">
             <h5 class="card-title grey">{artisan.nom}</h5>
             <span class="badge text-bg-success">{artisan.note}/5</span>

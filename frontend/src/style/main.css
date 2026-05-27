@@ -16,6 +16,23 @@ body, .App {
   width: 18rem;
 }
 
+.artisan-fiche {
+  background-color: #f1f8fc;
+  border-radius: 25px;
+  transition: transform 0.3s ease-in-out;
+}
+.artisan-fiche:hover {
+  transform: scale(1.05);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.App .App-dody {
+  flex: 1;
+}
 .App .App-header {
   background-color: #f1f8fc;
   padding: 0.5rem 0;
@@ -37,6 +54,12 @@ body, .App {
   height: 100%;
   object-fit: contain;
   display: block;
+  -webkit-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+.App .App-header .logo-container img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .App .App-header .search-nav-container {
   display: flex;
@@ -64,14 +87,11 @@ body, .App {
 .App .App-header .search-nav-container .nav-bottom .nav-link {
   color: #384050;
   font-weight: 500;
+  transition: transform 0.3s ease-in-out;
 }
 .App .App-header .search-nav-container .nav-bottom .nav-link:hover {
   color: #0074c7;
-  width: 100%;
-  -webkit-transform: scale(1.5);
   transform: scale(1.5);
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 .App .App-footer {
   background-color: #00497c;

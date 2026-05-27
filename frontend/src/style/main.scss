@@ -37,7 +37,23 @@ body, .App{
     width: 18rem;
 }
 
+.artisan-fiche{
+    background-color: $light;
+    border-radius: 25px;
+
+    transition: transform 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+
 .App{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    .App-dody{
+        flex: 1;
+    }
     .App-header{
         background-color: $header;
         //border-bottom: 1px;
@@ -62,6 +78,13 @@ body, .App{
                 height: 100%;
                 object-fit: contain;
                 display: block;
+
+                -webkit-transition: transform 0.3s ease-in-out;
+                transition: transform 0.3s ease-in-out;
+                &:hover {
+                    -webkit-transform: scale(1.1); // Un zoom léger de 5% comme pour vos fiches d'artisans
+                    transform: scale(1.1);
+                }
             }
         }
 
@@ -102,13 +125,11 @@ body, .App{
                 .nav-link{
                     color: $grey;
                     font-weight: 500;
+
+                    transition: transform 0.3s ease-in-out;
                     &:hover{
                         color: $medium;
-                        width: 100%;
-                        -webkit-transform: scale(1.5);
                         transform: scale(1.5);
-                        -webkit-transition: 0.3s ease-in-out;
-                        transition: 0.3s ease-in-out;
                     }
                 }
             }

@@ -102,8 +102,8 @@ body, .App{
         color: $light;
     }
 
-    .App-dody{
-        flex: 1;
+    main.App-dody{
+        flex: 1 0 auto;
     }
     .App-header{
         background-color: $header;
@@ -192,6 +192,8 @@ body, .App{
         background-color: $footer;
         padding-top: 2rem;
         padding-bottom: 2rem;
+        margin-top: auto;
+        flex-shrink: 0;
         ul{
             list-style: none;
             padding: 0;

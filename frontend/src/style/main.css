@@ -71,8 +71,8 @@ body, .App {
 .App ol {
   color: #f1f8fc;
 }
-.App .App-dody {
-  flex: 1;
+.App main.App-dody {
+  flex: 1 0 auto;
 }
 .App .App-header {
   background-color: #f1f8fc;
@@ -138,6 +138,8 @@ body, .App {
   background-color: #00497c;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 .App .App-footer ul {
   list-style: none;

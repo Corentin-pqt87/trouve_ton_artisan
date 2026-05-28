@@ -1,3 +1,11 @@
+@font-face {
+  font-family: Graphik;
+  src: url("../asset/font/Graphik_Collection/Graphik Family/Graphik-Regular-Trial.otf") format("opentype");
+}
+p, h1, h2, h3, h4, h5, h6, a, form, li {
+  font-family: Graphik;
+}
+
 * {
   margin: 0;
   padding: 0;

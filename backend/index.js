@@ -3,10 +3,12 @@ const cors = require('cors');
 const { connectDB, sequelize } = require('./config/db');
 const artisanRoutes = require('./routes/artisanRoutes'); // Votre fichier de routes
 
-const app = express(); // <--- C'EST CETTE LIGNE QUI MANQUAIT !
-const PORT = 5000;
+const app = express(); 
 
-// autoriser React (3000) à communiquer avec l'API
+// CORRECTION DU PORT : Utiliser celui fourni dynamiquement par Render, ou 5000 en local
+const PORT = process.env.PORT || 5000;
+
+// autoriser toutes les origines (notamment votre site Vercel) à communiquer avec l'API
 app.use(cors());
 
 // permettre a Express de lire le format JSON
@@ -21,7 +23,7 @@ sequelize.sync({ force: false })
 // utilisation des routes de l'API pour les artisans
 app.use(artisanRoutes);
 
-// lancer le serveur d'API 
-app.listen(PORT, () => {
+// CORRECTION DU LISTEN : Ajout de PORT dynamique et de l'adresse '0.0.0.0' obligatoire pour Render
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Le serveur API Node.js écoute sur le port ${PORT}`);
 });

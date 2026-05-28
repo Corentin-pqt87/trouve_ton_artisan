@@ -140,7 +140,7 @@ function Recherche() {
   return (
     <div className="Recherche container py-4 py-md-5">
       
-      {/* BOUTON BURGER : Visible uniquement sur Mobile (d-md-none) */}
+      {/* BOUTON BURGER */}
       <div className="d-md-none mb-3 text-start">
         <button 
           className="btn btn-burger-filtres d-inline-flex align-items-center gap-2" 

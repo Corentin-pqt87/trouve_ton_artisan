@@ -28,8 +28,8 @@ function ArtisanCard({ artisan }) {
                 </span>
             </div>
             <p className="card-text">{artisan.a_propos}</p>
-            <Link className="card-link" to={artisan.email} >Email</Link>
-            <Link className="card-link" to={artisan.site_web} >Site web</Link>
+            <a className="card-link" href={`mailto:${artisan.email}`}>Email</a>
+            <a className="card-link" href={artisan.site_web} target="_blank" rel="noreferrer">Site web</a>
             
         </div>
     </div>

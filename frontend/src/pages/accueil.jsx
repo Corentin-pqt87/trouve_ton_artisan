@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 import ArtisanCard from '../components/ArtisanCard'; 
 
 export default function Accueil() {
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
     const [artisans, setArtisans] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    
     useEffect(() => {
-        
-        fetch('http://localhost:5000/api/artisans') 
+        fetch(`${API_URL}/api/artisans`) 
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Erreur lors de la récupération des artisans');
@@ -26,7 +26,7 @@ export default function Accueil() {
                 setError(err.message);
                 setLoading(false);
             });
-    }, []);
+    }, [API_URL]); // Ajout de API_URL dans les dépendances du useEffect
 
     if (loading) return <div className="container text-center my-5 grey">Chargement des artisans...</div>;
     if (error) return <div className="container text-center my-5 text-danger">Erreur : {error}</div>;
@@ -53,7 +53,7 @@ export default function Accueil() {
                     {artisans
                         .filter(artisan => artisan.top_artisan === 1 || artisan.top_artisan === true)
                         .map(artisan => (
-                            <div key={artisan.id} className="col-12 col-md-4 d-flex justify-content-center">
+                            <div key={artisan.id_artisan || artisan.id} className="col-12 col-md-4 d-flex justify-content-center">
                                 <ArtisanCard artisan={artisan} />
                             </div>
                         ))

@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // autoriser toutes les origines (notamment votre site Vercel) à communiquer avec l'API
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 // permettre a Express de lire le format JSON
 app.use(express.json());

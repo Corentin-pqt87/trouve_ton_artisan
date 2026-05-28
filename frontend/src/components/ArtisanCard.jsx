@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ArtisanCard({ artisan }) {
   // note <= 3.5 : rouge
@@ -13,22 +14,23 @@ function ArtisanCard({ artisan }) {
   }
 
   return (
-    <div class="card artisan-fiche">
-        <div class="card-body">
+    <div className="card artisan-fiche">
+        <div className="card-body">
             <h5 class="card-title grey">{artisan.nom}</h5>
-            <span class="badge text-bg-success">{artisan.note}/5</span>
+            <p className="artisan-ville">{artisan.Ville.ville_name}</p>
+            <span className="badge text-bg-success">{artisan.note}/5</span>
             <div>
-                <span class="badge rounded-pill text-bg-primary">
+                <span className="badge rounded-pill text-bg-primary">
                     {artisan.Specialite.specialite_name}
                 </span>
-                <span class="badge rounded-pill text-bg-secondary">
+                <span className="badge rounded-pill text-bg-secondary">
                     {artisan.Categorie.categorie_name}
                 </span>
             </div>
-            <p class="card-text">{artisan.a_propos}</p>
-            <a href={artisan.email} class="card-link">{artisan.email}</a>
-            <a href={artisan.site_web} class="card-link">{artisan.site_web}</a>
-            <p>{artisan.Ville.ville_name}</p>
+            <p className="card-text">{artisan.a_propos}</p>
+            <Link className="card-link" to={artisan.email} >Email</Link>
+            <Link className="card-link" to={artisan.site_web} >Site web</Link>
+            
         </div>
     </div>
   );

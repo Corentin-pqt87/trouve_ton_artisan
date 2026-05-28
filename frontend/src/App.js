@@ -15,7 +15,7 @@ import NotFound from './pages/NotFound';
 import Accessibilite from './pages/LEGAL/accessibilite'
 import Cookies from './pages/LEGAL/cookies'
 import Donne from './pages/LEGAL/donnees_personnelles'
-import Mentions_legals from './pages/LEGAL/mentions_legals'
+import MentionsLegals from './pages/LEGAL/mentions_legals'
 
 function App() {
   const [texteSaisi, setTexteSaisi] = useState('');
@@ -107,7 +107,7 @@ function App() {
           <Route path="/accessibilite" element={<Accessibilite />} />
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/donnees_personnelles" element={<Donne />} />
-          <Route path="/mentions_legals" element={<Mentions_legals />} />
+          <Route path="/mentions_legals" element={<MentionsLegals />} />
 
         </Routes>
       </main>

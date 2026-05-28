@@ -103,6 +103,11 @@ function App() {
           <Route path="/recherche" element={<Recherche />} />
           <Route path="/test" element={<Test />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/accessibilite" element={<Accessibilite />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/donnees_personnelles" element={<Donne />} />
+          <Route path="/mentions_legals" element={<Mentions_legals />} />
+
         </Routes>
       </main>
 

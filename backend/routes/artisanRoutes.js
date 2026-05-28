@@ -7,8 +7,7 @@ const { Op } = require('sequelize');
 // Route pour récupérer tous les artisans avec leurs détails
 router.get('/api/artisans', async (req, res) => {
   try {
-    // parametre de recherche
-    const { id_categorie, nom, villes } = req.query;
+    const { id_categorie, nom, villes, specialites } = req.query;
     
     let conditions = {};
 
@@ -16,20 +15,26 @@ router.get('/api/artisans', async (req, res) => {
       conditions.id_categorie = id_categorie;
     }
 
-    // recherche du motife de la bar de recherche
     if (nom) {
       conditions.nom = {
-        [Op.like]: `%${nom}%` 
+        [Op.like]: `%${nom}%`
       };
     }
 
-    // filtre par villes si des cases sont cochees
-    if (villes) {
-      const listeIdsVilles = villes.split(','); 
+    if (villes && villes.trim() !== "" && villes !== "undefined") {
+      const listeIdsVilles = villes.split(',');
       conditions.id_ville = {
-        [Op.in]: listeIdsVilles // Filtre SQL 
+        [Op.in]: listeIdsVilles
       };
     }
+
+    if (specialites && specialites.trim() !== "" && specialites !== "undefined") {
+      const listeIdsSpecs = specialites.split(',');
+      conditions.id_specialite = {
+        [Op.in]: listeIdsSpecs
+      };
+    }
+
     const artisans = await Artisan.findAll({
       where: conditions,
       include: [
@@ -45,6 +50,17 @@ router.get('/api/artisans', async (req, res) => {
   }
 });
 
+router.get('/api/specialite', async (req, res) => {
+  try {
+    const toutesLesSpecialite = await Specialite.findAll({
+      order: [['specialite_name', 'ASC']] // Tri alphabétique automatique bien plus propre pour l'affichage
+    });
+    res.json(toutesLesSpecialite);
+  } catch (error) {
+    res.status(500).json({ error: "Erreur lors du chargement des specialites", details: error.message });
+  }
+});
+
 router.get('/api/villes', async (req, res) => {
   try {
     const toutesLesVilles = await Ville.findAll({
@@ -57,20 +73,20 @@ router.get('/api/villes', async (req, res) => {
 });
 
 // Route pour récupérer un artisan précis par son ID
-router.get('/api/artisans/:id', async (req, res) => {
-  try {
-    const artisan = await Artisan.findByPk(req.params.id, {
-      include: [Ville, Categorie, Specialite]
-    });
-
-    if (!artisan) {
-      return res.status(404).json({ message: "Artisan introuvable" });
-    }
-
-    res.json(artisan);
-  } catch (error) {
-    res.status(500).json({ error: "Erreur serveur" });
-  }
-});
+//router.get('/api/artisans/:id', async (req, res) => {
+//  try {
+//    const artisan = await Artisan.findByPk(req.params.id, {
+//      include: [Ville, Categorie, Specialite]
+//    });
+//
+//    if (!artisan) {
+//      return res.status(404).json({ message: "Artisan introuvable" });
+//    }
+//
+//    res.json(artisan);
+//  } catch (error) {
+//    res.status(500).json({ error: "Erreur serveur" });
+//  }
+//});
 
 module.exports = router;

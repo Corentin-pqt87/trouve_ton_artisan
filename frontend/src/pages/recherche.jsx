@@ -11,52 +11,76 @@ function Recherche() {
   // table artisan
   const [artisans, setArtisans] = useState([]);
   // table ville
-  const [villes, setVilles] = useState([]); 
-  //const [rechercheTexte, setRechercheTexte] = useState('');
+  const [villes, setVilles] = useState([]);
   const [villesSelectionnees, setVillesSelectionnees] = useState([]);
 
-  // affiche toute les villes de la table ville pour les recherches a cocher
+  // table specialité
+  const [specialites, setSpecialites] = useState([]);
+  const [specialitesSelectionnees, setSpecialitesSelectionnees] = useState([]);
+
+  // Appel API pour avoir toute les villes
   useEffect(() => {
     fetch('http://localhost:5000/api/villes')
       .then(res => {
-        if (!res.ok) throw new Error("Erreur lors de la récupération des villes");
+        if (!res.ok) throw new Error("Erreur lors de la récupération des villes"); // <-- Corrigé ici ( " au lieu de \" )
         return res.json();
       })
-      .then(data => setVilles(data)) // Injecte directement le résultat de la BDD (Lyon, Valence, etc.)
+      .then(data => setVilles(data))
       .catch(err => console.error("Erreur récupération villes :", err));
   }, []);
 
+  // Appel API pour avoir toute les specialite
+  useEffect(() => {
+    fetch('http://localhost:5000/api/specialite')
+      .then(res => {
+        if (!res.ok) throw new Error("Erreur lors de la récupération des spécialités"); // <-- Corrigé ici ( " au lieu de \" )
+        return res.json();
+      })
+      .then(data => setSpecialites(data))
+      .catch(err => console.error("Erreur récupération spécialités :", err));
+  }, []);
 
+  const handleVilleChange = (id_ville) => {
+    if (villesSelectionnees.includes(id_ville)) {
+      setVillesSelectionnees(villesSelectionnees.filter(id => id !== id_ville));
+    } else {
+      setVillesSelectionnees([...villesSelectionnees, id_ville]);
+    }
+  };
 
+  // Gestion des spécialités
+  const handleSpecialiteChange = (id_specialite) => {
+    if (specialitesSelectionnees.includes(id_specialite)) {
+      setSpecialitesSelectionnees(specialitesSelectionnees.filter(id => id !== id_specialite));
+    } else {
+      setSpecialitesSelectionnees([...specialitesSelectionnees, id_specialite]);
+    }
+  };
 
-
-  // filtre avec les categorie des artisans
+  // Filtre avec les critères
   useEffect(() => {
     let queryParams = new URLSearchParams();
     
     if (categorieId) queryParams.append('id_categorie', categorieId);
-
     if (rechercheNavbar) queryParams.append('nom', rechercheNavbar);
     
-    // si un/des ville(s) est/sont coché(s)
     if (villesSelectionnees.length > 0) {
       queryParams.append('villes', villesSelectionnees.join(','));
     }
 
-    fetch(`http://localhost:5000/api/artisans?${queryParams.toString()}`)
-      .then(res => res.json())
-      .then(data => setArtisans(data))
-      .catch(err => console.error("Erreur récupération artisans :", err));
-  }, [categorieId, rechercheNavbar, villesSelectionnees]);
-
-  // case a cocher
-  const handleVilleChange = (idVille) => {
-    if (villesSelectionnees.includes(idVille)) {
-      setVillesSelectionnees(villesSelectionnees.filter(id => id !== idVille));
-    } else {
-      setVillesSelectionnees([...villesSelectionnees, idVille]);
+    if (specialitesSelectionnees.length > 0) {
+      queryParams.append('specialites', specialitesSelectionnees.join(','));
     }
-  };
+    
+    fetch(`http://localhost:5000/api/artisans?${queryParams.toString()}`)
+      .then(res => {
+        if (!res.ok) throw new Error("Erreur lors du filtrage des artisans");
+        return res.json();
+      })
+      .then(data => setArtisans(data))
+      .catch(err => console.error("Erreur filtrage :", err));
+
+  }, [categorieId, rechercheNavbar, villesSelectionnees, specialitesSelectionnees]);
 
   return (
     <div className="container-fluid my-4">
@@ -85,13 +109,38 @@ function Recherche() {
                       onChange={() => handleVilleChange(ville.id_ville)}
                     />
                     <label className="form-check-label" htmlFor={`ville-${ville.id_ville}`}>
-                      {ville.ville_name} {/* Le nom de la ville provenant de MySQL */}
+                      {ville.ville_name}
                     </label>
                   </div>
                 ))
               )}
             </div>
           </div>
+
+          <div className="specialite mb-4">
+            <h4 className="mb-3">Spécialités</h4>
+            <div className="d-flex flex-column gap-2 overflow-y-auto" style={{maxHeight: "250px"}}>
+              {specialites.length === 0 ? (
+                <p className="text-muted small">Aucune spécialité disponible</p>
+              ) : (
+                specialites.map(spec => (
+                  <div className="form-check" key={spec.id_specialite}>
+                    <input 
+                      className="form-check-input" 
+                      type="checkbox" 
+                      id={`specialite-${spec.id_specialite}`}
+                      checked={specialitesSelectionnees.includes(spec.id_specialite)}
+                      onChange={() => handleSpecialiteChange(spec.id_specialite)}
+                    />
+                    <label className="form-check-label" htmlFor={`specialite-${spec.id_specialite}`}>
+                      {spec.specialite_name}
+                    </label>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
         </div>
 
         {/* PARTIE DROITE : resultat de la recherche (3/4) */}

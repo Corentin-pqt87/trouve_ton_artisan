@@ -25,11 +25,117 @@ body, .App {
   transform: scale(1.05);
 }
 
-.recherche {
-  color: #f1f8fc;
+.Recherche {
+  min-height: 70vh;
 }
-.recherche .ville label {
-  color: #f1f8fc;
+.Recherche .list-container {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.Recherche .list-container::-webkit-scrollbar {
+  width: 6px;
+}
+.Recherche .list-container::-webkit-scrollbar-track {
+  background: rgba(241, 248, 252, 0.1);
+  border-radius: 10px;
+}
+.Recherche .list-container::-webkit-scrollbar-thumb {
+  background: rgba(241, 248, 252, 0.4);
+  border-radius: 10px;
+}
+.Recherche .list-container::-webkit-scrollbar-thumb:hover {
+  background: #f1f8fc;
+}
+.Recherche .form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+.Recherche .form-check input.form-check-input {
+  margin-top: 0;
+  cursor: pointer;
+  border: 1.5px solid currentColor;
+  background-color: transparent;
+}
+.Recherche .form-check input.form-check-input:checked {
+  background-color: #00497c;
+  border-color: currentColor;
+}
+.Recherche .form-check label {
+  cursor: pointer;
+  font-size: 0.95rem;
+  user-select: none;
+}
+.Recherche .btn-burger-filtres {
+  background-color: #f1f8fc;
+  color: #00497c;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+.Recherche .btn-burger-filtres:hover, .Recherche .btn-burger-filtres:active, .Recherche .btn-burger-filtres:focus {
+  background-color: rgb(220, 237.5, 247.5);
+  color: #00497c;
+}
+.Recherche .btn-burger-filtres .burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 12px;
+}
+.Recherche .btn-burger-filtres .burger-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #00497c;
+  border-radius: 2px;
+}
+.Recherche .custom-offcanvas {
+  background-color: #f1f8fc;
+  max-width: 280px;
+}
+.Recherche .custom-offcanvas .offcanvas-header {
+  border-bottom: 1px solid rgba(0, 73, 124, 0.1);
+}
+.Recherche .custom-offcanvas .list-container::-webkit-scrollbar-track {
+  background: rgba(0, 73, 124, 0.05);
+}
+.Recherche .custom-offcanvas .list-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 73, 124, 0.2);
+}
+.Recherche .custom-offcanvas .form-check input.form-check-input {
+  border-color: #0074c7;
+}
+.Recherche .custom-offcanvas .form-check input.form-check-input:checked {
+  background-color: #0074c7;
+  border-color: #0074c7;
+}
+@media (min-width: 768px) {
+  .Recherche .filtre-section {
+    position: sticky;
+    top: 25px;
+    height: fit-content;
+  }
+  .Recherche .pc-filtres-sidebar {
+    padding-right: 1rem;
+  }
+  .Recherche .pc-filtres-sidebar h4 {
+    font-weight: 600;
+    border-bottom: 2px solid rgba(241, 248, 252, 0.2);
+    padding-bottom: 0.5rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .Recherche .resultat-section h3 {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
 }
 
 .App {

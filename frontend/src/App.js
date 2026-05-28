@@ -1,6 +1,7 @@
 // src/App.js
 import logo from './asset/img/Logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React, { useState } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import './style/main.css'

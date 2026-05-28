@@ -82,77 +82,119 @@ function Recherche() {
 
   }, [categorieId, rechercheNavbar, villesSelectionnees, specialitesSelectionnees]);
 
+  // version mobil
+  const RenderFiltresContent = ({ isMobile = false }) => (
+    <>
+      {/* Bloc Villes */}
+      <div className="ville-bloc mb-4">
+        <h4 className={`mb-3 ${isMobile ? 'text-dark fw-bold' : 'text-light'}`}>Villes</h4>
+        <div className="d-flex flex-column gap-2 list-container">
+          {villes.length === 0 ? (
+            <p className="text-muted small">Aucune ville disponible</p>
+          ) : (
+            villes.map(ville => (
+              <div className="form-check" key={ville.id_ville}>
+                <input 
+                  className="form-check-input" 
+                  type="checkbox" 
+                  id={`${isMobile ? 'mob' : 'pc'}-ville-${ville.id_ville}`}
+                  checked={villesSelectionnees.includes(ville.id_ville)}
+                  onChange={() => handleVilleChange(ville.id_ville)}
+                />
+                <label className={`form-check-label ${isMobile ? 'text-dark' : 'text-light'}`} htmlFor={`${isMobile ? 'mob' : 'pc'}-ville-${ville.id_ville}`}>
+                  {ville.ville_name}
+                </label>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
+      {/* Bloc Spécialités */}
+      <div className="specialite-bloc">
+        <h4 className={`mb-3 ${isMobile ? 'text-dark fw-bold' : 'text-light'}`}>Spécialités</h4>
+        <div className="d-flex flex-column gap-2 list-container">
+          {specialites.length === 0 ? (
+            <p className="text-muted small">Aucune spécialité disponible</p>
+          ) : (
+            specialites.map(spec => (
+              <div className="form-check" key={spec.id_specialite}>
+                <input 
+                  className="form-check-input" 
+                  type="checkbox" 
+                  id={`${isMobile ? 'mob' : 'pc'}-spec-${spec.id_specialite}`}
+                  checked={specialitesSelectionnees.includes(spec.id_specialite)}
+                  onChange={() => handleSpecialiteChange(spec.id_specialite)}
+                />
+                <label className={`form-check-label ${isMobile ? 'text-dark' : 'text-light'}`} htmlFor={`${isMobile ? 'mob' : 'pc'}-spec-${spec.id_specialite}`}>
+                  {spec.specialite_name}
+                </label>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </>
+  );
+
   return (
-    <div className="container-fluid my-4">
-      <div className="row">
+    <div className="Recherche container py-4 py-md-5">
+      
+      {/* BOUTON BURGER : Visible uniquement sur Mobile (d-md-none) */}
+      <div className="d-md-none mb-3 text-start">
+        <button 
+          className="btn btn-burger-filtres d-inline-flex align-items-center gap-2" 
+          type="button" 
+          data-bs-toggle="offcanvas" 
+          data-bs-target="#offcanvasFiltres" 
+          aria-controls="offcanvasFiltres"
+        >
+          <span className="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span className="fw-bold">Filtrer les résultats</span>
+          {(villesSelectionnees.length > 0 || specialitesSelectionnees.length > 0) && (
+            <span className="badge bg-danger rounded-pill">
+              {villesSelectionnees.length + specialitesSelectionnees.length}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {/* MENU BURGER Telephone*/}
+      <div className="offcanvas offcanvas-start d-md-none custom-offcanvas" tabIndex="-1" id="offcanvasFiltres" aria-labelledby="offcanvasFiltresLabel">
+        <div className="offcanvas-header border-b">
+          <h5 className="offcanvas-title fw-bold text-dark" id="offcanvasFiltresLabel">Options de filtrage</h5>
+          <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div className="offcanvas-body">
+          <RenderFiltresContent isMobile={true} />
+        </div>
+      </div>
+
+      <div className="row g-4">
         
-        {/* PARTIE GAUCHE : zone de recherche (1/4) */}
-        <div className="col-md-3 recherche border-end border-light-subtle pe-3">
-          <h4 className="mb-3 grey">Filtres de recherche</h4>
-          
-          
-
-          {/* Recherche par Villes : case a cocher pour les villes */}
-          <div className="mb-4 ville">
-            <label className="form-label fw-bold grey">Filtrer par Ville</label>
-            <div style={{ maxHeight: "300px", overflowY: "auto" }}> {/* Ajout d'un scrollbar*/}
-              {villes.length === 0 ? (
-                <p className="text-muted small grey">Chargement des villes disponibles...</p>
-              ) : (
-                villes.map(ville => (
-                  <div className="form-check mb-2 grey" key={ville.id_ville}> {/* Utilisation de la clé primaire de votre table SQL */}
-                    <input 
-                      className="form-check-input" 
-                      type="checkbox" 
-                      id={`ville-${ville.id_ville}`}
-                      checked={villesSelectionnees.includes(ville.id_ville)}
-                      onChange={() => handleVilleChange(ville.id_ville)}
-                    />
-                    <label className="form-check-label" htmlFor={`ville-${ville.id_ville}`}>
-                      {ville.ville_name}
-                    </label>
-                  </div>
-                ))
-              )}
-            </div>
+        {/* SIDEBAR PC */}
+        <div className="col-12 col-md-3 d-none d-md-block filtre-section">
+          <div className="pc-filtres-sidebar">
+            <RenderFiltresContent isMobile={false} />
           </div>
-
-          <div className="specialite mb-4">
-            <h4 className="mb-3">Spécialités</h4>
-            <div className="d-flex flex-column gap-2 overflow-y-auto" style={{maxHeight: "250px"}}>
-              {specialites.length === 0 ? (
-                <p className="text-muted small">Aucune spécialité disponible</p>
-              ) : (
-                specialites.map(spec => (
-                  <div className="form-check" key={spec.id_specialite}>
-                    <input 
-                      className="form-check-input" 
-                      type="checkbox" 
-                      id={`specialite-${spec.id_specialite}`}
-                      checked={specialitesSelectionnees.includes(spec.id_specialite)}
-                      onChange={() => handleSpecialiteChange(spec.id_specialite)}
-                    />
-                    <label className="form-check-label" htmlFor={`specialite-${spec.id_specialite}`}>
-                      {spec.specialite_name}
-                    </label>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-
         </div>
 
-        {/* PARTIE DROITE : resultat de la recherche (3/4) */}
-        <div className="col-md-9 resultat ps-4">
-          <h3 className="mb-4 grey">
+        {/* PARTIE DROITE : Résultats de recherche */}
+        <div className="col-12 col-md-9 resultat-section">
+          <h3 className="mb-4 text-md-start text-center text-light">
             {artisans.length} Artisan(s) correspondant(s)
           </h3>
           
           {artisans.length === 0 ? (
-            <div className="alert alert-info">Aucun artisan ne correspond à vos critères.</div>
+            <div className="alert alert-info text-center text-md-start">
+              Aucun artisan ne correspond à vos critères.
+            </div>
           ) : (
-            <div className="row row-cols-1 row-cols-lg-3 g-4">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 justify-content-center justify-content-md-start">
               {artisans.map(artisan => (
                 <div className="col d-flex justify-content-center" key={artisan.id_artisan}>
                   <ArtisanCard artisan={artisan} />

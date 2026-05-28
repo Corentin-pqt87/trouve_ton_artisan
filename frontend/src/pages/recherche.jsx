@@ -3,6 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import ArtisanCard from '../components/ArtisanCard';
 
 function Recherche() {
+
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   const [searchParams] = useSearchParams();
 
   const categorieId = searchParams.get('categorie');
@@ -20,25 +23,25 @@ function Recherche() {
 
   // Appel API pour avoir toute les villes
   useEffect(() => {
-    fetch('http://localhost:5000/api/villes')
+    fetch(`${API_URL}/api/villes`)
       .then(res => {
         if (!res.ok) throw new Error("Erreur lors de la récupération des villes"); // <-- Corrigé ici ( " au lieu de \" )
         return res.json();
       })
       .then(data => setVilles(data))
       .catch(err => console.error("Erreur récupération villes :", err));
-  }, []);
+  }, [API_URL]);
 
   // Appel API pour avoir toute les specialite
   useEffect(() => {
-    fetch('http://localhost:5000/api/specialite')
+    fetch(`${API_URL}/api/specialite`)
       .then(res => {
         if (!res.ok) throw new Error("Erreur lors de la récupération des spécialités"); // <-- Corrigé ici ( " au lieu de \" )
         return res.json();
       })
       .then(data => setSpecialites(data))
       .catch(err => console.error("Erreur récupération spécialités :", err));
-  }, []);
+  }, [API_URL]);
 
   const handleVilleChange = (id_ville) => {
     if (villesSelectionnees.includes(id_ville)) {
@@ -72,7 +75,7 @@ function Recherche() {
       queryParams.append('specialites', specialitesSelectionnees.join(','));
     }
     
-    fetch(`http://localhost:5000/api/artisans?${queryParams.toString()}`)
+    fetch(`${API_URL}/api/artisans?${queryParams.toString()}`)
       .then(res => {
         if (!res.ok) throw new Error("Erreur lors du filtrage des artisans");
         return res.json();
@@ -80,7 +83,7 @@ function Recherche() {
       .then(data => setArtisans(data))
       .catch(err => console.error("Erreur filtrage :", err));
 
-  }, [categorieId, rechercheNavbar, villesSelectionnees, specialitesSelectionnees]);
+  }, [categorieId, rechercheNavbar, villesSelectionnees, specialitesSelectionnees, API_URL]);
 
   // version mobil
   const RenderFiltresContent = ({ isMobile = false }) => (

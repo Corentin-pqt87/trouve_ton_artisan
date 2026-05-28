@@ -67,6 +67,7 @@ body, .App {
   cursor: pointer;
   border: 1.5px solid currentColor;
   background-color: transparent;
+  color: #f1f8fc;
 }
 .Recherche .form-check input.form-check-input:checked {
   background-color: #00497c;

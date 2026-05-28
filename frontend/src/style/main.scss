@@ -95,6 +95,7 @@ body, .App{
             cursor: pointer;
             border: 1.5px solid currentColor;
             background-color: transparent;
+            color: $light;
             
             &:checked {
                 background-color: $dark;

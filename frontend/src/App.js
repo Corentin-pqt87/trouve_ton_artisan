@@ -111,10 +111,10 @@ function App() {
           <div className="row">
             <div className="col-12 col-md-6">
               <ul className="list-unstyled">
-                <li><Link to="/accessibilite">Accessibilité</Link></li>
-                <li><Link to="/cookies">Cookies</Link></li>
-                <li><Link to="/donnees_personnelles">Données Personnelles</Link></li>
-                <li><Link to="/mentions_legals">Mentions Légales</Link></li>
+                <li><Link className="nav-link" to="/accessibilite">Accessibilite</Link></li>
+                <li><Link className="nav-link" to="/cookies">Cookies</Link></li>
+                <li><Link className="nav-link" to="/donnees_personnelles">Données Personnelles</Link></li>
+                <li><Link className="nav-link" to="/mentions_legals">Mentions Légales</Link></li>
               </ul>
             </div>
             <div className="col-12 col-md-6 text-md-end">

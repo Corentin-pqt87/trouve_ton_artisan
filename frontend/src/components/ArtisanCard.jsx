@@ -4,9 +4,9 @@ import ContactForm from "./ContactForm";
 
 function ArtisanCard({ artisan }) {
     const [showForm, setShowForm] = useState(false);
-  // note <= 3.5 : rouge
-  // 3.5 < note <= 4.5 : jaune
-  // 3.5 < note : vert
+    // note <= 3.5 : rouge
+    // 3.5 < note <= 4.5 : jaune
+    // 3.5 < note : vert
     let noteBadgeClass = "text-bg-danger"; // Par défaut <= 3.5
   
     if (artisan.note >= 4.5) {
@@ -30,8 +30,16 @@ function ArtisanCard({ artisan }) {
                     </span>
                 </div>
                 <p className="card-text">{artisan.a_propos}</p>
-                {artisan.email && artisan.email.trim() !== "" && (
-                    <a className="card-link" href={`mailto:${artisan.email}`}>Email</a>
+                {artisan.email && artisan.email.trim() !== "" && !showForm && (
+                    <button 
+                        className="btn btn-link card-link p-0 border-0 align-baseline text-decoration-none" 
+                        onClick={() => setShowForm(true)}
+                    >
+                        Contacter par Email
+                    </button>
+                )}
+                {artisan.site_web && artisan.site_web.trim() !== "" && !showForm && (
+                    <a className="card-link" href={artisan.site_web} target="_blank" rel="noreferrer">Site web</a>
                 )}
                 {showForm && (
                 <ContactForm 
@@ -40,6 +48,7 @@ function ArtisanCard({ artisan }) {
                     onCancel={() => setShowForm(false)} 
                 />
                 )}
+                
             
             </div>
         </div>

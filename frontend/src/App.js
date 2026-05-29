@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React, { useState } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import './style/main.css'
+//import './style/auvergnerhonealpes.fr.css'
 
 //page
 import Accueil from './pages/accueil';
@@ -75,22 +76,22 @@ function App() {
               </div>
 
               {/* BOUTTON */}
-              <div className="nav-bottom">
-                <ul className="nav me-2">
+              <div className="nav-bottom ">
+                <ul className="nav me-2 d-flex justify-content-around">
                   <li>
-                    <Link className="nav-link" to="/recherche" onClick={() => setTexteSaisi('')}>Tout</Link>
+                    <Link className="nav-link rounded-pill" to="/recherche" onClick={() => setTexteSaisi('')}>Tout</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/recherche?categorie=2" onClick={() => setTexteSaisi('')}>Bâtiment</Link>
+                    <Link className="nav-link rounded-pill" to="/recherche?categorie=2" onClick={() => setTexteSaisi('')}>Bâtiment</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/recherche?categorie=4" onClick={() => setTexteSaisi('')}>Services</Link>
+                    <Link className="nav-link rounded-pill" to="/recherche?categorie=4" onClick={() => setTexteSaisi('')}>Services</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/recherche?categorie=3" onClick={() => setTexteSaisi('')}>Fabrication</Link>
+                    <Link className="nav-link rounded-pill" to="/recherche?categorie=3" onClick={() => setTexteSaisi('')}>Fabrication</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/recherche?categorie=1" onClick={() => setTexteSaisi('')}>Alimentation</Link>
+                    <Link className="nav-link rounded-pill" to="/recherche?categorie=1" onClick={() => setTexteSaisi('')}>Alimentation</Link>
                   </li>
                 </ul>
               </div>

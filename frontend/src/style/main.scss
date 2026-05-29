@@ -39,7 +39,7 @@ body, .App{
     background-color: $body;
 }
 
-.grey, p, h1, h2, h3, h4, h5{
+.grey{
     color: $grey;
 }
 
@@ -197,6 +197,19 @@ body, .App{
     }
 }
 
+.Accueil{
+    background-color: white;
+
+    .explication{
+        color: $dark;
+        background-color: $light;
+        padding: 12px;
+        .titre{
+            padding: 12px;
+        }    
+    }
+}
+
 .App{
     position: relative;
     display: flex;
@@ -211,7 +224,7 @@ body, .App{
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url(../asset/img/artisan.jpg);
+        //background-image: url(../asset/img/artisan.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -236,10 +249,7 @@ body, .App{
         background-image: url(../asset/img/services.jpg);
     }
 
-    h1, h2, h3, h4{
-        color: $light;
-    }
-    ol{
+    .light{
         color: $light;
     }
 
@@ -247,9 +257,13 @@ body, .App{
         flex: 1 0 auto;
     }
     .App-header{
-        background-color: $header;
+        background-color: white;
         //border-bottom: 1px;
         padding: 0.5rem 0;
+
+        box-shadow: 
+            0 0.3em 1em  rgb(56 64 80 / 60%)
+        ;
 
         // DIV gauche : logo
         .logo-container{
@@ -271,12 +285,12 @@ body, .App{
                 object-fit: contain;
                 display: block;
 
-                -webkit-transition: transform 0.3s ease-in-out;
-                transition: transform 0.3s ease-in-out;
-                &:hover {
-                    -webkit-transform: scale(1.1); // Un zoom léger de 5% comme pour vos fiches d'artisans
-                    transform: scale(1.1);
-                }
+                //-webkit-transition: transform 0.3s ease-in-out;
+                //transition: transform 0.3s ease-in-out;
+                //&:hover {
+                //    -webkit-transform: scale(1.1); // Un zoom léger de 5% comme pour vos fiches d'artisans
+                //    transform: scale(1.1);
+                //}
             }
         }
 
@@ -286,7 +300,7 @@ body, .App{
             flex-direction: column;
             gap: 0.5rem;
 
-            // bar de recherche
+            
             .search-top{
                 display: flex;
                 justify-content: flex-end;
@@ -299,29 +313,36 @@ body, .App{
 
             // bar de recherche
             input.form-control{
-                background-color: $medium;
-                color: $light;
+                background-color: $light;
+                color: $grey;
 
                 //texte de base
                 &::placeholder{
-                    color: $light;
+                    color: $grey;
                 }
 
             }
 
             // boutton de recherche
             .nav-bottom{
-                display: flex;
-                justify-content: flex-end;
+                //display: flex;
+                //justify-content: flex-end;
 
                 .nav-link{
-                    color: $grey;
+                    color: white;
                     font-weight: 500;
+                    background-color: $medium;
+                    //border-radius: 1px;
+                    //padding-bottom: 6;
+                    //padding-top: 6;
+                    //padding-left: 15;
+                    //padding-right: 15;
 
-                    transition: transform 0.3s ease-in-out;
+                    //transition: transform 0.3s ease-in-out;
                     &:hover{
-                        color: $medium;
-                        transform: scale(1.5);
+                        //color: $medium;
+                        //transform: scale(1.5);
+                        background-color: $dark;
                     }
                 }
             }
@@ -330,7 +351,7 @@ body, .App{
     }
 
     .App-footer{
-        background-color: $footer;
+        background-color: $medium;
         padding-top: 2rem;
         padding-bottom: 2rem;
         margin-top: auto;
@@ -342,10 +363,10 @@ body, .App{
         }
         a{
             text-decoration: none;
-            color: $light;
+            color: white;
         }
         li{
-            color: $light;
+            color: white;
         }
     }
 }

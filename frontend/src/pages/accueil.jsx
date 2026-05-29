@@ -32,17 +32,22 @@ export default function Accueil() {
     if (error) return <div className="container text-center my-5 text-danger">Erreur : {error}</div>;
 
     return (
-        <div className='Accueil container my-4'>
+        <div className='Accueil container-fluid py-4'>
             <h1>Trouve Ton Artisan</h1>
 
-            <div className='explication mb-5'>
-                <h2>Comment trouver mon artisan ?</h2>
-                <ol>
-                    <li>Choisir la catégorie d’artisanat dans le menu.</li>
-                    <li>Choisir un artisan.</li>
-                    <li>Le contacter via le formulaire de contact.</li>
-                    <li>Une réponse sera apportée sous 48h.</li>
-                </ol>
+            <div className='explication container-fluid mb-5'>
+                <div className='titre'>
+                    <h2>Comment trouver mon artisan ?</h2>
+                </div>
+                <div>
+                    <ol>
+                        <li>Choisir la catégorie d’artisanat dans le menu.</li>
+                        <li>Choisir un artisan.</li>
+                        <li>Le contacter via le formulaire de contact.</li>
+                        <li>Une réponse sera apportée sous 48h.</li>
+                    </ol>
+                </div>
+                
             </div>
 
             {/* TOP ARTISANS */}

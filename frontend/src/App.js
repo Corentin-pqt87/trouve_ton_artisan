@@ -52,7 +52,7 @@ function App() {
             {/* GAUCHE : LOGO */}
             <div className="col-12 col-md-4 logo-container">
               {/* Le clic sur le logo réinitialise la recherche */}
-              <Link className="navbar-brand" to="/recherche" onClick={() => setTexteSaisi('')}>
+              <Link className="navbar-brand" to="/">
                 <img src={logo} alt="Logo" className='logo' />
               </Link>
             </div>
@@ -77,6 +77,9 @@ function App() {
               {/* BOUTTON */}
               <div className="nav-bottom">
                 <ul className="nav me-2">
+                  <li>
+                    <Link className="nav-link" to="/recherche" onClick={() => setTexteSaisi('')}>Tout</Link>
+                  </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/recherche?categorie=2" onClick={() => setTexteSaisi('')}>Bâtiment</Link>
                   </li>

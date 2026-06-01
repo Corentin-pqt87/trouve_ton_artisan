@@ -14,7 +14,7 @@ $text-primary: $grey;
 
 // Elements
 $header: $light;
-$body: $medium;
+$body: white;
 $footer:$dark;
 
 //font
@@ -59,26 +59,67 @@ body, .App{
 
 .Recherche {
     min-height: 70vh;
+    display: flex;
+    flex-direction: column;
 
     .resultat-section{
-        // IMAGE EN FONCTION DE LA CATEGORIE
-        &.bg-cat-1::before { // Alimentation
-            background-image: url(../asset/img/alimentation.webp);
-        }
+        //background-size: cover;
+        //background-position: center;
+        //background-repeat: no-repeat;
 
-        &.bg-cat-2::before { // Bâtiment
-            background-image: url(../asset/img/batiment.jpg);
-        }
+        //position: relative;
 
-        &.bg-cat-3::before { // Fabrication
-            background-image: url(../asset/img/fabrication.jpg);
-        }
-
-        &.bg-cat-4::before { // Services
-            background-image: url(../asset/img/services.jpg);
-        }
+        background-color: white;
 
     }
+
+    .filtre-section{
+        color: $dark;
+        scrollbar-color: $green $light;
+        scrollbar-width: thin;
+
+        &::-webkit-scrollbar {
+            width: 6px; // Barre verticale très fine pour les listes
+            height: 6px; // Au cas où il y aurait un scroll horizontal
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $light; 
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $green; // Utilise votre bleu foncé
+            border-radius: 10px;
+
+            &:hover {
+                background: $grey; // Devient gris au survol
+            }
+        }
+
+        div, ul, ol {
+            scrollbar-color: $green $light;
+            scrollbar-width: thin;
+
+            &::-webkit-scrollbar { width: 6px; height: 6px; }
+            &::-webkit-scrollbar-track { background: $light; border-radius: 10px; }
+            &::-webkit-scrollbar-thumb { background: $dark; border-radius: 10px; }
+        }
+
+        &, *, label, h4, h5, .form-check-label{
+            color: $dark !important;
+        }
+
+        .form-check-input {
+            border-color: $dark;
+            
+            &:checked {
+                background-color: $dark;
+                border-color: $dark;
+            }
+        }
+    }
+
 
     // Listes déroulantes scrollables (PC et Mobile)
     .list-container {
@@ -115,10 +156,10 @@ body, .App{
             cursor: pointer;
             border: 1.5px solid currentColor;
             background-color: transparent;
-            color: $light;
+            color: $green;
             
             &:checked {
-                background-color: $dark;
+                background-color: $green;
                 border-color: currentColor;
             }
         }
@@ -183,7 +224,7 @@ body, .App{
         .form-check input.form-check-input {
             border-color: $medium;
             &:checked {
-                background-color: $medium;
+                //background-color: $medium;
                 border-color: $medium;
             }
         }
@@ -253,6 +294,7 @@ body, .App{
     }
 
     
+
     .light{
         color: $light;
     }

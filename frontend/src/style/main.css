@@ -13,7 +13,7 @@ p, h1, h2, h3, h4, h5, h6, a, form, li {
 }
 
 body, .App {
-  background-color: #0074c7;
+  background-color: white;
 }
 
 .grey {
@@ -35,6 +35,57 @@ body, .App {
 
 .Recherche {
   min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+.Recherche .resultat-section {
+  background-color: white;
+}
+.Recherche .filtre-section {
+  color: #00497c;
+  scrollbar-color: #82b864 #f1f8fc;
+  scrollbar-width: thin;
+}
+.Recherche .filtre-section::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.Recherche .filtre-section::-webkit-scrollbar-track {
+  background: #f1f8fc;
+  border-radius: 10px;
+}
+.Recherche .filtre-section::-webkit-scrollbar-thumb {
+  background: #82b864;
+  border-radius: 10px;
+}
+.Recherche .filtre-section::-webkit-scrollbar-thumb:hover {
+  background: #384050;
+}
+.Recherche .filtre-section div, .Recherche .filtre-section ul, .Recherche .filtre-section ol {
+  scrollbar-color: #82b864 #f1f8fc;
+  scrollbar-width: thin;
+}
+.Recherche .filtre-section div::-webkit-scrollbar, .Recherche .filtre-section ul::-webkit-scrollbar, .Recherche .filtre-section ol::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.Recherche .filtre-section div::-webkit-scrollbar-track, .Recherche .filtre-section ul::-webkit-scrollbar-track, .Recherche .filtre-section ol::-webkit-scrollbar-track {
+  background: #f1f8fc;
+  border-radius: 10px;
+}
+.Recherche .filtre-section div::-webkit-scrollbar-thumb, .Recherche .filtre-section ul::-webkit-scrollbar-thumb, .Recherche .filtre-section ol::-webkit-scrollbar-thumb {
+  background: #00497c;
+  border-radius: 10px;
+}
+.Recherche .filtre-section, .Recherche .filtre-section *, .Recherche .filtre-section label, .Recherche .filtre-section h4, .Recherche .filtre-section h5, .Recherche .filtre-section .form-check-label {
+  color: #00497c !important;
+}
+.Recherche .filtre-section .form-check-input {
+  border-color: #00497c;
+}
+.Recherche .filtre-section .form-check-input:checked {
+  background-color: #00497c;
+  border-color: #00497c;
 }
 .Recherche .list-container {
   max-height: 220px;
@@ -67,10 +118,10 @@ body, .App {
   cursor: pointer;
   border: 1.5px solid currentColor;
   background-color: transparent;
-  color: #f1f8fc;
+  color: #82b864;
 }
 .Recherche .form-check input.form-check-input:checked {
-  background-color: #00497c;
+  background-color: #82b864;
   border-color: currentColor;
 }
 .Recherche .form-check label {
@@ -122,7 +173,6 @@ body, .App {
   border-color: #0074c7;
 }
 .Recherche .custom-offcanvas .form-check input.form-check-input:checked {
-  background-color: #0074c7;
   border-color: #0074c7;
 }
 @media (min-width: 768px) {
@@ -178,18 +228,6 @@ body, .App {
   background-repeat: no-repeat;
   opacity: 0.3;
   z-index: -1;
-}
-.App.bg-cat-1::before {
-  background-image: url(../asset/img/alimentation.webp);
-}
-.App.bg-cat-2::before {
-  background-image: url(../asset/img/batiment.jpg);
-}
-.App.bg-cat-3::before {
-  background-image: url(../asset/img/fabrication.jpg);
-}
-.App.bg-cat-4::before {
-  background-image: url(../asset/img/services.jpg);
 }
 .App .light {
   color: #f1f8fc;

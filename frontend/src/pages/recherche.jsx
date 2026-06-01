@@ -89,7 +89,7 @@ function Recherche() {
   const RenderFiltresContent = ({ isMobile = false }) => (
     <>
       {/* Bloc Villes */}
-      <div className="ville-bloc mb-4">
+      <div className="ville-bloc mb-4 filtre-section">
         <h4 className={`mb-3 ${isMobile ? 'text-dark fw-bold' : 'text-light'}`}>Villes</h4>
         <div className="d-flex flex-column gap-2 list-container">
           {villes.length === 0 ? (
@@ -114,7 +114,7 @@ function Recherche() {
       </div>
 
       {/* Bloc Spécialités */}
-      <div className="specialite-bloc">
+      <div className="specialite-bloc filtre-section">
         <h4 className={`mb-3 ${isMobile ? 'text-dark fw-bold' : 'text-light'}`}>Spécialités</h4>
         <div className="d-flex flex-column gap-2 list-container">
           {specialites.length === 0 ? (
@@ -187,8 +187,8 @@ function Recherche() {
         </div>
 
         {/* PARTIE DROITE : Résultats de recherche */}
-        <div className="col-12 col-md-9 resultat-section">
-          <h3 className="mb-4 text-md-start text-center text-light">
+        <div className="col-12 col-md-9 resultat-section bg-cat-${categorieId}">
+          <h3 className="mb-4 text-md-start text-center">
             {artisans.length} Artisan(s) correspondant(s)
           </h3>
           

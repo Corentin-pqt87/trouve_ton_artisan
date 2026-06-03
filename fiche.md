@@ -13,6 +13,8 @@ Le frontend est héberger sur [vercel](https://vercel.com/), le backend est héb
 
 Des problème pour le formulaire de contact, tout les service que j'ai trouver étant payant et n'ayant trouver uniquement des méthodes qui nécessité une seul adresse de contact j'ai opté pour un `mailto` qui ouvre la messagerie avec l'adresse de l'artisan. 
 
+> [!WARNING] Render
+> L'API est héberger sur render, render met en veille l'api quand il n'y a pas d'utilisateur. Il faut donc attendre quelque seconde le temps que l'api ce lance.
 ### Base de données
 ![DBeaver-capture](./data/sql.png)
 

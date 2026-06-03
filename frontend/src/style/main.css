@@ -276,8 +276,12 @@ body, .App {
   width: 100%;
 }
 .App .App-header .search-nav-container input.form-control {
-  background-color: #f1f8fc;
+  background-color: white;
   color: #384050;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #0074c7;
+  border-right: 1px solid #0074c7;
 }
 .App .App-header .search-nav-container input.form-control::placeholder {
   color: #384050;

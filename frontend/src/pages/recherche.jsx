@@ -197,9 +197,9 @@ function Recherche() {
               Aucun artisan ne correspond à vos critères.
             </div>
           ) : (
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 justify-content-center justify-content-md-start">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-5 justify-content-center justify-content-md-start">
               {artisans.map(artisan => (
-                <div className="col d-flex justify-content-center" key={artisan.id_artisan}>
+                <div className="col d-flex justify-content-center mb-3" key={artisan.id_artisan}>
                   <ArtisanCard artisan={artisan} />
                 </div>
               ))}

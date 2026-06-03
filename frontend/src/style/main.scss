@@ -366,8 +366,14 @@ body, .App{
 
             // bar de recherche
             input.form-control{
-                background-color: $light;
+                background-color: white;
                 color: $grey;
+
+                border: none;
+                border-radius: 0;
+
+                border-bottom: 1px solid $medium;
+                border-right: 1px solid $medium;
 
                 //texte de base
                 &::placeholder{

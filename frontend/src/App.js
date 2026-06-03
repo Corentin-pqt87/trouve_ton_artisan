@@ -12,6 +12,7 @@ import Accueil from './pages/accueil';
 import Recherche from "./pages/recherche";
 import Test from './pages/Test';
 import NotFound from './pages/NotFound';
+import ArtisanDetail from "./pages/ArtisanDetail";
 //page legal pour footer
 import Accessibilite from './pages/LEGAL/accessibilite'
 import Cookies from './pages/LEGAL/cookies'
@@ -46,7 +47,7 @@ function App() {
   return (
     <div className={`App ${categorieActive ? `bg-cat-${categorieActive}` : ''}`}>
       {/* HEADER ----------------------------------------------------------------------------------------------------- */}
-      <header className="App-header border-bottom py-2">
+      <header className="App-header border-bottom py-2 shadow-sm">
         <div className="container-fluid">
           <div className="row align-items-center">
             
@@ -65,7 +66,7 @@ function App() {
               <div className="search-top">
                 <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
                   <input 
-                    className="form-control me-2 rounded-pill" 
+                    className="form-control me-2 " 
                     type="search" 
                     placeholder="Rechercher un artisan..." 
                     aria-label="Search"
@@ -112,6 +113,7 @@ function App() {
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/donnees_personnelles" element={<Donne />} />
           <Route path="/mentions_legals" element={<MentionsLegals />} />
+          <Route path="/artisan/:id" element={<ArtisanDetail />} />
 
         </Routes>
       </main>

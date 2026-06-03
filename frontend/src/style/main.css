@@ -33,6 +33,11 @@ body, .App {
   transform: scale(1.05);
 }
 
+.ArtisanDetail .btn {
+  background-color: #0074c7;
+  color: white;
+}
+
 .Recherche {
   min-height: 70vh;
   display: flex;

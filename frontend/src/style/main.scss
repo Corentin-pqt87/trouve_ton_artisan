@@ -57,6 +57,13 @@ body, .App{
     }
 }
 
+.ArtisanDetail{
+    .btn{
+        background-color: $medium;
+        color: white;
+    }
+}
+
 .Recherche {
     min-height: 70vh;
     display: flex;

@@ -14,6 +14,10 @@ function ArtisanCard({ artisan }) {
   }
 
   return (
+    <Link 
+      to={`/artisan/${artisan.id_artisan || artisan.id}`} 
+      className="text-decoration-none card artisan-fiche"
+    >
         <div className="card artisan-fiche">
             <div className="card-body">
                 <h5 class="card-title grey">{artisan.nom}</h5>
@@ -36,6 +40,7 @@ function ArtisanCard({ artisan }) {
                 )}
             </div>
         </div>
+    </Link>
   );
 }
 export default ArtisanCard;
